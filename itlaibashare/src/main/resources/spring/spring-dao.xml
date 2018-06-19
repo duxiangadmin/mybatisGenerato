@@ -53,6 +53,8 @@
           </property>
 	</bean>
 	
+	
+	
 	<!-- 配置 转换器，对于在basePackage设置的包（包括子包）下的接口类，如果在Mapper.xml文件中定义过， 将被转换成spring的BEAN，在调用 
 		的地方通过@Autowired方式将可以注入接口实例 -->
 
