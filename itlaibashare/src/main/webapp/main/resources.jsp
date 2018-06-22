@@ -38,13 +38,21 @@
 				<h4 class="title-w3ls">
 				资源下载			
 				</h4>
-			</div>		
-			<div class="col-sx-1">
+			</div>	
+			
+			<div class="input-group">
+		      <input type="text" id="keyword" class="form-control" placeholder="Search for...">
+		      <span class="input-group-btn">
+		        <button id="search" class="btn btn-default" type="button">Go!</button>
+		      </span>
+		    </div>
+
+			<!-- <div class="col-sx-1">
 				<input id="search" type="button" class="btn" style="float: left" value="soug">
 			</div>
-	        <div class="col-xs-3" style="border:0px solid red">
+				        <div class="col-xs-3" style="border:0px solid red">
 				<input type="text" id="keyword" class="form-control" placeholder="按资源名搜索...">
-			</div>
+			</div> -->
     	</div>
 		<div class="news-bottom">
 				<div class="news-one-wthree-agile">	

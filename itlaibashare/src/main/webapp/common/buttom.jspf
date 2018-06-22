@@ -1,7 +1,4 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@include file="/common/common.jspf" %>
-<script>
-</script>
 <div class="contact" id="contact">
 	<div class="container">
 	<span class="about-top-w3"><a name="problem">如有疑问可留言</a></span>
@@ -25,12 +22,10 @@
 		<div class="col-md-5 contact-agileits-w3layouts">		
 			<h5 class="sub" style="color: #045858">如果本站对您有帮助，请帮忙资助本站</h5>
 			<div class="col-md-6">
-				<p style="font-size: 1.3em;text-align: center;">支付宝</p>
 				<img src="http://www.itlaiba.com/pay/wxpay.png" class="img-thumbnail" width="200px" alt="Responsive image" style="float: left;">
 			</div>
 			
-			<div class="col-md-6">
-				<p  style="font-size: 1.3em;text-align: center;">微信</p> 
+			<div class="col-md-6">				
 				<img src="http://www.itlaiba.com/pay/alipay.jpg" class="img-thumbnail" width="200px" alt="Responsive image">
 			</div>
 		</div>
