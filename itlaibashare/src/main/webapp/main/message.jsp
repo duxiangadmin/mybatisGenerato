@@ -5,7 +5,7 @@
 <title>it留言</title>
 <%@include file="/common/common.jspf" %>
 <style type="text/css">
-
+	
 </style><%-- 
 <c:if test="${empty messags }">
 	<script type="text/javascript">
@@ -23,9 +23,9 @@
 	<span class="about-top-w3"><a  name="problem">留言</a></span>
 		<h4 class="title-w3ls">留言列表</h4>		
 		<div class="news-bottom">
-				<div class="news-one-wthree-agile">					
+				<div class="news-one-wthree-agile" style="float: left;">					
 					<c:forEach items="${messags }" var="message">			
-						<div class="col-md-12 news-left" style="border-bottom:1px solid green;margin:5px"> 
+						<div class="col-md-12 news-right" style="border-bottom:1px solid green;margin:5px"> 
 						<a href="#one"><h4>${message.messageTitle }</h4></a>
 							<!-- 这里的word-wrap:break-word，可以实现内容自动换行
 								text-indent:2em实现首行缩进两个字符
@@ -34,7 +34,7 @@
 							<a style="float: left;color: green;display: block;">留言时间：${message.messageTime }</a>	
 							<a style="float: right;color: green;display: block;">留言人：${message.messageUser }</a>
 							<!-- <a href="" style="float: right;color: green">回复</a> -->
-						</div>					
+						</div>				
 					</c:forEach>
 				</div>						
 			</div>	
@@ -98,7 +98,7 @@
 		
 				
 		<c:choose>	
-			<c:when test="${(page.count+page.start > page.rows)}">
+			<c:when test="${(page.count+page.start >= page.rows)}">
 				<a>下一页</a>
 			</c:when>
 			<c:otherwise>			

@@ -1,9 +1,15 @@
 package com.itlaiba.itlaibashare.syscontroller;
 
+import java.util.List;
+
+import javax.annotation.PostConstruct;
 import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+
+import com.itlaiba.itlaibashare.category.pojo.Category;
+import com.itlaiba.itlaibashare.category.service.CategoryService;
 
 /**
  * 用来作为系统数据加载的handler
@@ -17,5 +23,17 @@ public class SysresourceController {
 	@Autowired
 	ServletContext application;
 	
+	@Autowired
+	private CategoryService categoryService;
+	
+	/*@PostConstruct
+	public void category(){
+		try {
+			List<Category> categories = categoryService.selectList();
+			application.setAttribute("categorys",categories);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}*/
 
 }

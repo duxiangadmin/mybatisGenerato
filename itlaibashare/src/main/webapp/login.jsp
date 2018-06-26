@@ -34,7 +34,7 @@
 		$("#ff").form("disableValidation");
     	$('#win').dialog({  
     		title:"登陆窗口",
-		   width : 250,
+		  	width : 250,
 			height : 150,
 			closed : false,
 			cache : false,
@@ -43,6 +43,11 @@
 			//模式化窗口.如果为true将锁屏
 			modal : true,
 		    buttons:[{
+		    	text:'注册',
+				handler:function(){					
+					window.open("${proPath}/addId.jsp","_blank");
+				}
+		    },{
 		    	text:'登陆',
 				handler:function(){					
 					$("#ff").form("enableValidation");
@@ -56,5 +61,6 @@
 		    }]		   
 		}); 
     </script>
+    <div id="win"></div>
   </body>
 </html>

@@ -1,15 +1,17 @@
 package com.itlaiba.itlaibashare.users.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.itlaiba.itlaibashare.users.pojo.Users;
-import com.itlaiba.itlaibashare.users.pojo.UsersExample;
 import com.itlaiba.itlaibashare.users.service.UsersService;
 
 /**
@@ -32,21 +34,37 @@ public class UsersController {
 	 * 因为用户登录查询需要账号及密码，这里注册一个users对象保存登陆时调教的账号密码
 	 * */
 	@RequestMapping("/login")
-	public String login(UsersExample example,Users users,HttpServletRequest request){
-		List<Users> list = null;
+	public String login(Users users,HttpServletRequest request){
+		Subject subject = SecurityUtils.getSubject();
+		UsernamePasswordToken token = new UsernamePasswordToken(users.getLoginId(), users.getLoginPwd());
 		try {
-			list = usersService.selectByExample(example, users);
-		} catch (Exception e) {
-			
-		}
-//		如果查询出来的list的大小不是0就说明查询成功，是由数据的转发到控制台界面
-		if(list!=null && list.size()>0){
-			request.getSession().setAttribute("users", list.get(0));			
+			subject.login(token);
+			request.getSession().setAttribute("users", users);			
 			return "main/main";
-		}else{
+		} catch (Exception e) {
 			request.setAttribute("msg", "账号或密码错误");
 			request.setAttribute("user", users);
 			return "forward:/login.jsp";
+		}	
+	
+	}
+	
+	@SuppressWarnings("finally")
+	@RequestMapping(value="/insert",method=RequestMethod.POST)
+	public String insert(Users user,HttpServletRequest req){
+		int i = 0;
+		try {
+			Users dbuser = usersService.selectByPrimaryKey(user.getLoginId());		
+			if(dbuser==null){
+				i = usersService.insert(user);
+				req.setAttribute("msg", "注册成功，可以登录，您的身份是普通管理员");
+				return "forward:/login.jsp";
+			}
+		} catch (Exception e) {
+			throw new RuntimeException();
 		}
+		req.setAttribute("msg", "账号注册失败，请重新注册");
+		req.setAttribute("user", user);
+		return "forward:/addId.jsp";
 	}
 }

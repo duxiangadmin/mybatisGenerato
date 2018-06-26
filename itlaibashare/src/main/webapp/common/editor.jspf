@@ -3,6 +3,7 @@
 <c:set var="propath" value="${pageContext.request.contextPath }"></c:set>
 <script charset="utf-8" src="${propath }/editor/kindeditor-all.js"></script>
 <script charset="utf-8" src="${propath }/editor/lang/zh-CN.js"></script>
+<script src="${propath}/editor/plugins/code/prettify.js"></script>  
 <script>
         KindEditor.ready(function(K) {
 			       /*  var options = K.create('#editor_id', {
@@ -14,6 +15,7 @@
 			        }); */	 
 			        
 			         var options = {
+			         	cssPath:'${propath}/editor/plugins/code/prettify.css',
 			            uploadJson : '${propath}/editor/jsp/upload_json.jsp',
 			            fileManagerJson : '${propath}/editor/jsp/file_manager_json.jsp',
 			            allowFileManager : true,

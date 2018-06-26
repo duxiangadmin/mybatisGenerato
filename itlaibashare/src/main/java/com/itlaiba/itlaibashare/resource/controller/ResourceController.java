@@ -170,4 +170,12 @@ public class ResourceController extends BaseController{
 //		return list;
 	}
 	
+	/**
+	 * 资源分类查找
+	 */
+	@RequestMapping("/selectByClassify/{classify}")
+	public String selectByClassify(@PathVariable String classify,HttpServletRequest req,Page page){
+		
+		return "";
+	}
 }

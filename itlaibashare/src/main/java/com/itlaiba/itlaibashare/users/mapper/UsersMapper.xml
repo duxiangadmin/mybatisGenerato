@@ -5,190 +5,38 @@
     <id column="uid" jdbcType="VARCHAR" property="uid" />
     <id column="login_id" jdbcType="VARCHAR" property="loginId" />
     <result column="login_pwd" jdbcType="VARCHAR" property="loginPwd" />
+    <result column="login_name" jdbcType="VARCHAR" property="loginName" />
     <result column="email" jdbcType="VARCHAR" property="email" />
   </resultMap>
-  <sql id="Example_Where_Clause">
-    <where>
-      <foreach collection="oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <where>
-      <foreach collection="example.oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
+ 
   <sql id="Base_Column_List">
-    uid, login_id, login_pwd, email
+    uid, login_id, login_pwd, login_name, email
   </sql>
-  <select id="selectByExample" parameterType="com.itlaiba.itlaibashare.users.pojo.UsersExample" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from users
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
+  
   <select id="selectByPrimaryKey" parameterType="com.itlaiba.itlaibashare.users.pojo.UsersKey" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from users
-    where uid = #{uid,jdbcType=VARCHAR}
-      and login_id = #{loginId,jdbcType=VARCHAR}
+    where login_id = #{loginId,jdbcType=VARCHAR}
   </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="com.itlaiba.itlaibashare.users.pojo.UsersKey">
     delete from users
     where uid = #{uid,jdbcType=VARCHAR}
       and login_id = #{loginId,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.itlaiba.itlaibashare.users.pojo.UsersExample">
-    delete from users
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
+  
   <insert id="insert" parameterType="com.itlaiba.itlaibashare.users.pojo.Users">
     insert into users (uid, login_id, login_pwd, 
-      email)
+      login_name, email)
     values (#{uid,jdbcType=VARCHAR}, #{loginId,jdbcType=VARCHAR}, #{loginPwd,jdbcType=VARCHAR}, 
-      #{email,jdbcType=VARCHAR})
+      #{loginName,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.itlaiba.itlaibashare.users.pojo.Users">
-    insert into users
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="uid != null">
-        uid,
-      </if>
-      <if test="loginId != null">
-        login_id,
-      </if>
-      <if test="loginPwd != null">
-        login_pwd,
-      </if>
-      <if test="email != null">
-        email,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="uid != null">
-        #{uid,jdbcType=VARCHAR},
-      </if>
-      <if test="loginId != null">
-        #{loginId,jdbcType=VARCHAR},
-      </if>
-      <if test="loginPwd != null">
-        #{loginPwd,jdbcType=VARCHAR},
-      </if>
-      <if test="email != null">
-        #{email,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <select id="countByExample" parameterType="com.itlaiba.itlaibashare.users.pojo.UsersExample" resultType="java.lang.Long">
-    select count(*) from users
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map">
-    update users
-    <set>
-      <if test="record.uid != null">
-        uid = #{record.uid,jdbcType=VARCHAR},
-      </if>
-      <if test="record.loginId != null">
-        login_id = #{record.loginId,jdbcType=VARCHAR},
-      </if>
-      <if test="record.loginPwd != null">
-        login_pwd = #{record.loginPwd,jdbcType=VARCHAR},
-      </if>
-      <if test="record.email != null">
-        email = #{record.email,jdbcType=VARCHAR},
-      </if>
-    </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map">
-    update users
-    set uid = #{record.uid,jdbcType=VARCHAR},
-      login_id = #{record.loginId,jdbcType=VARCHAR},
-      login_pwd = #{record.loginPwd,jdbcType=VARCHAR},
-      email = #{record.email,jdbcType=VARCHAR}
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.itlaiba.itlaibashare.users.pojo.Users">
-    update users
-    <set>
-      <if test="loginPwd != null">
-        login_pwd = #{loginPwd,jdbcType=VARCHAR},
-      </if>
-      <if test="email != null">
-        email = #{email,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where uid = #{uid,jdbcType=VARCHAR}
-      and login_id = #{loginId,jdbcType=VARCHAR}
-  </update>
+    
   <update id="updateByPrimaryKey" parameterType="com.itlaiba.itlaibashare.users.pojo.Users">
     update users
     set login_pwd = #{loginPwd,jdbcType=VARCHAR},
+      login_name = #{loginName,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR}
     where uid = #{uid,jdbcType=VARCHAR}
       and login_id = #{loginId,jdbcType=VARCHAR}

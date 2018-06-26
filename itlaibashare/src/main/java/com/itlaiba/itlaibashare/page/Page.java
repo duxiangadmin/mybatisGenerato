@@ -11,7 +11,7 @@ public class Page {
 
 	int start=0;//开始位置
 	int count = 10;//每页显示大小
-	int last = 0;//
+	int last = 0;//最后一页
 	int tp;//总页数
 	int pc;//当前页
 	int rows;//总数居大小

@@ -29,9 +29,8 @@ public class MessageController {
 //	前台留言提交
 	@RequestMapping("/insert")
 	public String insert(Page page,MessageExample example,Message message,HttpServletRequest req){
-		int i =0;
 		try {
-			i = messageService.insert(message);
+			messageService.insert(message);
 //			return "redirect:/index.jsp#problem";
 //			return "redirect:/main/message.jsp#problem";
 			return selectpage(page,example, req);

@@ -126,7 +126,7 @@
 		
 				
 		<c:choose>	
-			<c:when test="${(page.count+page.start > page.rows)}">
+			<c:when test="${(page.count+page.start >= page.rows)}">
 				<a>下一页</a>
 			</c:when>
 			<c:otherwise>			

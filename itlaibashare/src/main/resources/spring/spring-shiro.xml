@@ -24,18 +24,30 @@
 	    <!-- Shiro的核心安全接口,这个属性是必须的 -->  
 	    <property name="securityManager" ref="securityManager"/>
 	    <!-- 身份认证失败，则跳转到登录页面的配置 -->  
-	    <property name="loginUrl" value="/index.jsp"/>
+	    <property name="loginUrl" value="/login.jsp"/>
 	    <!-- 权限认证失败，则跳转到指定页面 -->  
-	    <property name="unauthorizedUrl" value="/unauthor.jsp"/>  
+	    <property name="unauthorizedUrl" value="/404.jsp"/>  
 	    <!-- Shiro连接约束配置,即过滤链的定义 -->  
 	    <property name="filterChainDefinitions">  
 	        <value>  
-	             /user/login=anon
-				/admin*=authc
-				/student=roles[teacher]
-				/teacher=perms["user:create"]
+	            /user/login=anon
+				/base/gourl/**=authc
+				/base/adminurl/**=roles["普通管理员,金牌管理员,超级管理,我是老大"]
+				/**/delete*=roles["金牌管理员,超级管理,我是老大"]
+				/**/update*=roles["金牌管理员,超级管理,我是老大"]
+				<!-- 使用以上的连接必须具备某一个角色，多个角色具备某一个，必须实现一个类，在下方有一个filters过滤器,具体实现 -->
+				<!-- 
+				/**/delete*=perms["user:create"] -->
 	        </value>  
 	    </property>
+	    <property name="filters">
+			<map>			
+			<entry key="roles">  
+                    <bean  
+                        class="com.itlaiba.shiro.ssm.realm.RolesAuthorizationFilter" />  
+                </entry>  
+			</map>
+		</property>
 	</bean> 
 	
 	<!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->  

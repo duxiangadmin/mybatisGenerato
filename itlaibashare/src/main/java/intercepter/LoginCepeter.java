@@ -25,7 +25,7 @@ public class LoginCepeter implements HandlerInterceptor {
 		 String uri = request.getRequestURI();
 //		 System.out.println(uri);
 //		 判断当前url有没有包含login，有就放行，此处放行后会去handler，handler在根据情况确定是否让其登陆成功
-		 if(uri.indexOf("login")>0){
+		 if(uri.indexOf("login")>0 || uri.indexOf("user/insert")>0){
 			 return true;
 		 }
 //		 判断是否有session保存信息，因为我在baseController的handler中配置了一个页面跳转方法，所以需要判断是不是指定进行了页面的跳转后台
