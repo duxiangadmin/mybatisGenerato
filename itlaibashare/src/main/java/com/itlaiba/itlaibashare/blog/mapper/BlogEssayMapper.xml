@@ -31,6 +31,7 @@
   	<if test="keyword!=null and ''!=keyword">
   		where blog_title like #{keyword}
   	</if>
+  	ORDER BY order_by DESC
   </select>
   
   <select id="selectByPrimaryKey" parameterType="com.itlaiba.itlaibashare.blog.pojo.BlogEssayKey" resultMap="ResultMapWithBLOBs">

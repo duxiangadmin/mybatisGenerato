@@ -9,17 +9,19 @@
 <script type="text/javascript" src="${proPath}/editor/plugins/code/prettify.js"></script>  
 <script>prettyPrint();</script>  
 <style type="text/css">
-	.para-w3-agile {
-		position:relative;
+	/* .paraContent {
+		border:1px solid red;
+		height: 60px;
+		/*position:relative;
 		line-height:20px;
-		height:60px;   /* 是line-height的三倍，如果设置了padding属性，也要加上padding的高度*/
+		height:60px;    是line-height的三倍，如果设置了padding属性，也要加上padding的高度
 		overflow:hidden;
 		text-overflow:ellipsis;
 		white-space: nowrap;
 	}
-	.para-w3-agile:after {
+	.paraContent:after {
 		content:"...";
-	}
+	} */
 	pre.prettyprint {     
     border: 1px solid rgb(204, 204, 204);  
     background-color:#F8F8F8;  
@@ -41,16 +43,7 @@
 	$(function(){		
 		$("#search").click(function(){
 			var keyword = $("#keyword").val();			
-				window.location = "${proPath}/blog/select?keyword="+keyword.trim();
-				/* $.ajax({
-					url:"${proPath}/resource/syspage",
-					data:{"keyword":keyword},
-					dataType:"json",
-					success:function(data){
-						alert(data);
-					}					
-				}); */
-			
+				window.location = "${proPath}/blog/select?keyword="+keyword.trim();				
 		});	
 	});
 </script>
@@ -70,20 +63,13 @@
 		        <button id="search" class="btn btn-default" type="button">Go!</button>
 		      </span>
 		    </div>
-
-			<!-- <div class="col-sx-1">
-				<input id="search" type="button" class="btn" style="float: left" value="soug">
-			</div>
-				        <div class="col-xs-3" style="border:0px solid red">
-				<input type="text" id="keyword" class="form-control" placeholder="按资源名搜索...">
-			</div> -->
     	</div>
 		<div class="news-bottom">
 				<div class="news-one-wthree-agile">	
 					<c:forEach items="${blogEssays }" var="essay">				
 						<div class="col-md-12" style="border-bottom: 1px solid green;margin-top:10px"> 
 						<a href="#one"><h4>文章名：${essay.blogTitle }</h4></a>
-							<p>${essay.blogContent }</p>	
+							<div style="height: 100px;overflow: hidden;text-overflow:ellipsis;">${essay.blogContent }</div>	
 							<a href="${proPath}/blog/selectByKey/${essay.blogId}" target="_banck" style="float: right;color: green">查看详细</a>
 						</div>
 					</c:forEach>

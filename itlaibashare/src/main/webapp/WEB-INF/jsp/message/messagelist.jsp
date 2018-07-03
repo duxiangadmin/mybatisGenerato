@@ -45,7 +45,7 @@
 									  }else{
 									  	alert("对不超 ，删除失败");
 									  }
-								  //重新刷新页面
+								 	 //重新刷新页面
 								    $("#dg").datagrid("reload");
 								    //请除所有勾选的行
 								    $("#dg").datagrid("clearSelections");

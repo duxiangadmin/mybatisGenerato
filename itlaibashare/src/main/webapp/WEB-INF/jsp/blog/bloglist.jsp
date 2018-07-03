@@ -96,8 +96,6 @@
 							alert("请选择一条数据进行删除");
 						}
 					}
-				},'-',{
-					text:"<input type='text' name='keyword' id='keyword'/>"					
 				}]
 						        
 			});

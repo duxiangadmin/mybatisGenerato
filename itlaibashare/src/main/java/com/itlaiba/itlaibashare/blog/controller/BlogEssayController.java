@@ -141,7 +141,12 @@ public class BlogEssayController {
 		return map;
 	}
 	
-	
+	/**
+	 * 前台查询所有
+	 * @param page
+	 * @param req
+	 * @return
+	 */
 	@RequestMapping("/select")
 	public String select(Page page,HttpServletRequest req){
 		page.setUrl(CommonsUtil.getUrl(req));

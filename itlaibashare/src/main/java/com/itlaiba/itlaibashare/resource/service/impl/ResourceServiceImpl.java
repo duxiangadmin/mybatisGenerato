@@ -41,6 +41,7 @@ public class ResourceServiceImpl implements ResourceService{
 				criteria.andResourceNameLike("%"+page.getKeyword()+"%");				
 			}			
 		}
+		example.setOrderByClause("orde_by desc");
 		List<ResourcesWithBLOBs> list = resourcesMapper.selectByExampleWithBLOBs(example);
 		int total = (int) new PageInfo<ResourcesWithBLOBs>(list).getTotal();
 		page.setTp(total);
