@@ -11,6 +11,8 @@ public class Myresource extends MyresourceKey {
 
     private String myresourceImg;
 
+    private String myresourceSayurl;
+    
     private String myresourceUrl;
 
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
@@ -39,7 +41,17 @@ public class Myresource extends MyresourceKey {
         this.myresourceImg = myresourceImg == null ? null : myresourceImg.trim();
     }
 
-    public String getMyresourceUrl() {
+ 
+
+	public String getMyresourceSayurl() {
+		return myresourceSayurl;
+	}
+
+	public void setMyresourceSayurl(String myresourceSayurl) {
+		this.myresourceSayurl = myresourceSayurl;
+	}
+
+	public String getMyresourceUrl() {
         return myresourceUrl;
     }
 

@@ -9,6 +9,7 @@
     <result column="myresource_url" jdbcType="VARCHAR" property="myresourceUrl" />
     <result column="myresource_time" jdbcType="TIMESTAMP" property="myresourceTime" />
     <result column="myresource_number" jdbcType="INTEGER" property="myresourceNumber" />
+    <result column="myresource_sayurl" jdbcType="VARCHAR" property="myresourceSayurl" />    
     <result column="user_id" jdbcType="VARCHAR" property="userId" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.itlaiba.itlaibashare.myresource.pojo.Myresource">
@@ -73,7 +74,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    order_by, myresource_id, myresource_title, myresource_img, myresource_url, myresource_time, 
+    order_by, myresource_id, myresource_title, myresource_img,myresource_sayurl, myresource_url, myresource_time, 
     myresource_number, user_id
   </sql>
   <sql id="Blob_Column_List">

@@ -113,15 +113,14 @@ public class ResourceController extends BaseController{
 	 * 
 	 * */	
 	@RequestMapping("sys")
-	public String selectpage(Page page,HttpServletRequest req,MyresourceExample example){
+	public String selectpage(Page page,HttpServletRequest req,MyresourceExample mexample,ResourcesExample rexample){
 		page.setCount(5);//如果首页要控制显示的数目，就在这里重新赋值即可
-		List<ResourcesWithBLOBs> list = resourceService.select(page,null);
+		List<ResourcesWithBLOBs> list = resourceService.select(page,rexample);
 		req.setAttribute("blobs", list);
 		try {
-			List<Myresource> myresources = myresourceService.select(page, example);
+			List<Myresource> myresources = myresourceService.select(page, mexample);
 			req.setAttribute("myresources", myresources);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return "forward:/index.jsp";

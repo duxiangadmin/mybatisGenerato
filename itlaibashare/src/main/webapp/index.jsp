@@ -87,9 +87,9 @@
 
 						<br>	
 
-						<a href="https://codeload.github.com/duxiangadmin/scm/zip/master" style="float: left;color: green">源码下载</a>
+						<a href="${myresource.myresourceUrl }" style="float: left;color: green">源码下载</a>
 
-						<!-- <a href="http://www.itlaiba.com/scm/login.jsp" style="float: right;color: green">项目预览</a> -->						
+						<a href="${myresource.myresourceSayurl }" style="float: right;color: green">项目预览</a>						
 
 					</div>	
 

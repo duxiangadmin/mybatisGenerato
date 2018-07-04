@@ -150,7 +150,7 @@ public class BlogEssayController {
 	@RequestMapping("/select")
 	public String select(Page page,HttpServletRequest req){
 		page.setUrl(CommonsUtil.getUrl(req));
-		List<BlogEssay> blogEssays = new ArrayList<BlogEssay>();
+//		List<BlogEssay> blogEssays = new ArrayList<BlogEssay>();
 		List<BlogEssay> list = blogEssayService.select(page);
 		req.setAttribute("blogEssays", list);
 		return "forward:/main/blog.jsp";
