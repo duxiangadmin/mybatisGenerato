@@ -4,12 +4,16 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import com.itlaiba.itlaibashare.category.pojo.Category;
 import com.itlaiba.itlaibashare.category.service.CategoryService;
+import com.itlaiba.itlaibashare.classify.pojo.BlogClassify;
+import com.itlaiba.itlaibashare.classify.pojo.BlogClassifyExample;
+import com.itlaiba.itlaibashare.classify.service.ClassIfyImpl;
 
 /**
  * 用来作为系统数据加载的handler
@@ -26,6 +30,9 @@ public class SysresourceController {
 	@Autowired
 	private CategoryService categoryService;
 	
+	@Autowired
+	private ClassIfyImpl impl;
+	
 	/*@PostConstruct
 	public void category(){
 		try {
@@ -35,5 +42,11 @@ public class SysresourceController {
 			e.printStackTrace();
 		}
 	}*/
+	
+	@PostConstruct
+	public void list(){
+		List<BlogClassify> list = impl.list(null);
+		application.setAttribute("classifys", list);
+	}
 
 }

@@ -43,8 +43,13 @@
 			<textarea id="editor_id" name="blogContent" style="width:700px;height:300px;"></textarea>
 		</div>			
 		<div>
-			<label for="blogClassify">分类:</label>			
-			<input name="blogClassify" type="text" style="width: 80%"></input>  
+			<label for="blogClassify">分类:</label>			 
+			<!-- <input name="blogClassify" type="text" style="width: 80%"></input> -->
+			<select name="blogClassify">
+				<c:forEach items="${classifys }" var="ify">
+					<option value="${ify.blogId}">${ify.classIfy }</option>
+				</c:forEach>
+			</select>  
 		</div>
 		
 		<div>
@@ -53,7 +58,8 @@
 	</form>	
  
 	<script type="text/javascript">	
-		$(function() {				
+		$(function() {	
+			$.post();			
 			var win = parent.$("iframe[title='博客列表']").get(0).contentWindow;//返回ifram页面窗体对象（window)		
 			$("[name='blogTitle']").validatebox({
 				required : true,

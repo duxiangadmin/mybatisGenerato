@@ -46,8 +46,10 @@
 						<p style="padding-top: 100px">${blogEssay.blogContent }</p>							
 					</div>
 					<div class="col-md-12" style="margin-top:40px"></div>					
-					<div class="col-md-2" style="margin-top:10px">						 
-						<p>${blogEssay.blogClassify }</p>
+					<div class="col-md-2" style="margin-top:10px">
+						<c:forEach items="${classifys }" var="ify">
+							<c:if test="${blogEssay.blogClassify eq ify.blogId}">${ify.classIfy }</c:if>							
+						</c:forEach>
 					</div>
 					<div class="col-md-8" style="margin-top:10px"></div>
 					<div class="col-md-2" style="margin-top:10px"> 
