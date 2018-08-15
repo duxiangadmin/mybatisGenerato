@@ -29,7 +29,7 @@
   <select id="select" parameterType="com.itlaiba.itlaibashare.page.Page" resultMap="ResultMapWithBLOBs">
   	select <include refid="Base_Column_List"/> from blog_essay
   	<if test="keyword!=null and ''!=keyword">
-  		where blog_title like #{keyword}
+  		where blog_title like '%${keyword}%'
   	</if>
   	ORDER BY order_by DESC
   </select>

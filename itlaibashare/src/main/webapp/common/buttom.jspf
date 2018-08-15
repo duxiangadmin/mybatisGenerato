@@ -6,13 +6,13 @@
 			<span style="float: right;font-size: 0.6em"><a href="${proPath }/message/selectpage">最新留言</a></span>
 		</h4>
 		<div class="col-md-5 contact-agileits-w3layouts">		
-			<form if="ff" action="${proPath }/message/insert.action"  method="post">
+			<form id="ff" action="${proPath }/message/insert.action"  method="post">
 				<input type="text" name="messageUser" value="${users.loginId }" placeholder="留言人" />				
 				<input type="text" Name="messageTitle" maxlength="20" placeholder="留言标题" required=""/>
-				<textarea name="MessageContent" placeholder="留言内容" required=""></textarea>
+				<textarea name="MessageContent" placeholder="留言内容" required="required"></textarea>
 				<input type="submit" value="提交站长"><div id="output1"></div>
 			</form>
-			<h5 class="sub">有偿域名备案,网站存放</h5>
+			<h5 class="sub">有偿域名备案,网站制作，个人网站发布</h5>
 			<p><span>微信</span> :  aaaaa3202</p>
 			<p><span>QQ</span> :  937220832</p>
 			<p><span>邮箱</span><a href="mailto:example@mail.com"> :937220832@qq.com</a></p>
@@ -23,6 +23,7 @@
 			<h5 class="sub" style="color: #045858">如果本站对您有帮助，请帮忙资助本站</h5>
 			<div class="col-md-6">
 				<img src="http://www.itlaiba.com/pay/wxpay.png" class="img-thumbnail" width="200px" alt="Responsive image" style="float: left;">
+				
 			</div>
 			
 			<div class="col-md-6">				
@@ -31,11 +32,14 @@
 		</div>
 	</div>
 </div>
-</div>
 <!-- //about -->
 
 	<div class="footer">
 		<div class="container">
 			<p>© 2018 网站所有权归本人所有，如转载请注明出处|  <a href="#">itlaiba.com</a></p>
+			<div>
+				<p>友情链接</p>
+				<p><a href="www.yaoyifei.xyz">www.yaoyifei.xyz</a></p>
+			</div>
 		</div>
 	</div>

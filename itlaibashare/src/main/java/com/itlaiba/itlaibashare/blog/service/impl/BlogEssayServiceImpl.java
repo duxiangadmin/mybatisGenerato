@@ -1,6 +1,7 @@
 package com.itlaiba.itlaibashare.blog.service.impl;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -94,9 +95,4 @@ public class BlogEssayServiceImpl implements BlogEssayService {
 		page.caculateLast(total);
 		return list;
 	}
-	
-	
-	
-	
-
 }

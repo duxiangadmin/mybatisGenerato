@@ -69,7 +69,7 @@
 					<c:forEach items="${blogEssays }" var="essay">				
 						<div class="col-md-12" style="border-bottom: 1px solid green;margin-top:10px"> 
 						<a href="#one"><h4>文章名：${essay.blogTitle }</h4></a>
-							<div style="height: 100px;overflow: hidden;text-overflow:ellipsis;">${essay.blogContent }</div>	
+							<div style="height: 100px;overflow: hidden;text-overflow:ellipsis;" name="blogcontent">${essay.blogContent }</div>	
 							<a href="${proPath}/blog/selectByKey/${essay.blogId}" target="_banck" style="float: right;color: green">查看详细</a>
 						</div>
 					</c:forEach>

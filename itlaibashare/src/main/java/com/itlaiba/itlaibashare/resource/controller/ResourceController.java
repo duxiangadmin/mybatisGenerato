@@ -18,6 +18,7 @@ import com.itlaiba.itlaibashare.myresource.pojo.Myresource;
 import com.itlaiba.itlaibashare.myresource.pojo.MyresourceExample;
 import com.itlaiba.itlaibashare.myresource.service.MyresourceService;
 import com.itlaiba.itlaibashare.page.Page;
+import com.itlaiba.itlaibashare.pagesize.ShowPage;
 import com.itlaiba.itlaibashare.resource.pojo.ResourcesExample;
 import com.itlaiba.itlaibashare.resource.pojo.ResourcesWithBLOBs;
 import com.itlaiba.itlaibashare.resource.service.ResourceService;
@@ -114,7 +115,7 @@ public class ResourceController extends BaseController{
 	 * */	
 	@RequestMapping("sys")
 	public String selectpage(Page page,HttpServletRequest req,MyresourceExample mexample,ResourcesExample rexample){
-		page.setCount(5);//如果首页要控制显示的数目，就在这里重新赋值即可
+		page.setCount(ShowPage.SIZE);//如果首页要控制显示的数目，就在这里重新赋值即可
 		List<ResourcesWithBLOBs> list = resourceService.select(page,rexample);
 		req.setAttribute("blobs", list);
 		try {
@@ -126,7 +127,7 @@ public class ResourceController extends BaseController{
 		return "forward:/index.jsp";
 	}
 	
-	@SuppressWarnings("unused")
+	@SuppressWarnings("all")
 	private  String geturl(HttpServletRequest req){
 		String url = req.getRequestURI();
 		String q = req.getQueryString();
