@@ -3,12 +3,13 @@
 <html>
 <head>
 <%@ include file="/common/easyui.jspf"%>
-<%@ include file="/common/editor.jspf" %>
+<%@ include file="/common/ueditor.jspf" %> 
 <title>资源修改</title>
 <style type="text/css">	
 </style>
 
 <script type="text/javascript">  
+	var ue = UE.getEditor('editor');
             function getFileUrl(sourceId) {  
                 var url;  
                 if (navigator.userAgent.indexOf("MSIE")>=1) { // IE  
@@ -45,7 +46,7 @@
 		</div>	
 		<div>
 			<label for="blogContent">内容:</label>
-<textarea id="editor_id" name="blogContent" style="width:700px;height:300px;">${blogEssay.blogContent }</textarea>
+			<script id="editor" name="blogContent" type="text/plain" style="width:1024px;height:500px;">${blogEssay.blogContent }</script>
 			<!-- <textarea name="myresourceContent"  cols="36" rows="8" id="content" style="border: 1 solid #888888;LINE-HEIGHT:18px;padding: 3px;resize: none"></textarea> -->
 		</div>			
 		<div>

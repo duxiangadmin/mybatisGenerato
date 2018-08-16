@@ -40,7 +40,8 @@
 		</div>	
 		<div>
 			<label for="blogContent">资源介绍:</label>			
-			<textarea id="editor_id" name="blogContent" style="width:700px;height:300px;"></textarea>
+			<!-- <textarea id="editor_id" name="blogContent" style="width:700px;height:300px;"></textarea> -->
+			<div id="editor" name="blogContent" type="text/plain" style="width:1024px;height:500px;"></div>
 		</div>			
 		<div>
 			<label for="blogClassify">分类:</label>			 
@@ -56,8 +57,9 @@
 			<input id="btn" type="button" value="提交" />
 		</div>		
 	</form>	
- 
+   <%@ include file="/common/ueditor.jspf" %> 
 	<script type="text/javascript">	
+		var ue = UE.getEditor('editor');
 		$(function() {	
 			$.post();			
 			var win = parent.$("iframe[title='博客列表']").get(0).contentWindow;//返回ifram页面窗体对象（window)		
@@ -65,10 +67,6 @@
 				required : true,
 				missingMessage : '请填写资源名！'
 			}); 
-			$("[name='blogContent']").validatebox({
-				required : true,
-				missingMessage : '文章内容不能为空！'
-			});
 			//禁用验证
 			$("#ff").form("disableValidation");
 
@@ -104,5 +102,6 @@
 	</script>
 </body>
 
-<%@ include file="/common/editor.jspf" %>
+<%-- <%@ include file="/common/editor.jspf" %> --%>
+
 </html>

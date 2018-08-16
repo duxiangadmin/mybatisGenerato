@@ -2,13 +2,14 @@
 <html>
 <head>
 <%@ include file="/common/easyui.jspf"%>
-<%@ include file="/common/editor.jspf" %>
+<%@ include file="/common/ueditor.jspf" %> 
 <title>My JSP</title>
 <style type="text/css">	
 </style>
 
 <script type="text/javascript">  
-            function getFileUrl(sourceId) {  
+		var ue = UE.getEditor('editor');
+		function getFileUrl(sourceId) {  
                 var url;  
                 if (navigator.userAgent.indexOf("MSIE")>=1) { // IE  
                     url = document.getElementById(sourceId).value;  
@@ -42,7 +43,7 @@
 		</div>	
 		<div>
 			<label for="myresourceContent">资源介绍:</label>			
-<textarea id="editor_id" name="myresourceContent" style="width:700px;height:300px;"></textarea>
+			<script id="editor" name="myresourceContent" type="text/plain" style="width:1024px;height:500px;"></script>
 			<!-- <textarea name="myresourceContent"  cols="36" rows="8" id="content" style="border: 1 solid #888888;LINE-HEIGHT:18px;padding: 3px;resize: none"></textarea> -->
 		</div>			
 		<div>

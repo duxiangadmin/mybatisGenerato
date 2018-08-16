@@ -12,8 +12,8 @@
 			    pagination:true, 
 			    checkOnSelect:true,
 			    idField:"myresourceId",
-			    pageSize:5, 
-			    pageList:[1,2,3,5,10],
+			    pageSize:10, 
+			    pageList:[5,10,20,30],
 			    singleSelect:true,
 			    columns:[[    
 			    	{checkbox:true},

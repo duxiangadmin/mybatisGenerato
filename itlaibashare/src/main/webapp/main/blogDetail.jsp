@@ -5,8 +5,11 @@
 <title>博客列表</title>
 <%@include file="/common/common.jspf" %>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link type="text/css" rel="stylesheet" href="${proPath}/editor/plugins/code/prettify.css"/>  
- 
+<script type="text/javascript" src="${proPath}/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>
+<link rel="stylesheet" href="${proPath}/ueditor/third-party/SyntaxHighlighter/shCoreDefault.css">
+<script type="text/javascript">
+    SyntaxHighlighter.all();
+</script>
 <style type="text/css">	
 	pre.prettyprint {     
 	    border: 1px solid rgb(204, 204, 204);  

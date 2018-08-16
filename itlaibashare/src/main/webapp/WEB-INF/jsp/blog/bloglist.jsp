@@ -12,8 +12,8 @@
 			    pagination:true, 
 			    checkOnSelect:true,
 			    idField:"blogId",
-			    pageSize:5, 
-			    pageList:[1,2,3,5,10],
+			    pageSize:10, 
+			    pageList:[5,10,20,30],
 			    columns:[[    
 			    	{checkbox:true},
 			        {field:'blogId',title:'博文编号'},    

@@ -20,7 +20,7 @@
 		</div>
 		<div>
 			<label for="resourceIntroduce">资源介绍:</label>
-			<textarea name="resourceIntroduce"></textarea>
+			<textarea name="resourceIntroduce"  cols="36" rows="8" id="content" style="border: 1 solid #888888;LINE-HEIGHT:18px;padding: 3px;resize: none"></textarea>
 		</div>			
 		<div>
 			<label for="resourceUrl">下载:</label>
