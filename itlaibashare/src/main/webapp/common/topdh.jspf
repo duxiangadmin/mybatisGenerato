@@ -64,10 +64,10 @@
             <ul class="nav navbar-nav">  
                 <!--active加深-->  
                 <li class="active">
-                	<a href="${proPath }/resource/sys">首页</a>
+                	<a href="http://www.itlaiba.com">首页</a>
                 </li>  
                 <li>
-                	<a href="${proPath }/resource/sys#stationmaster">站长资源</a>
+                	<a href="${proPath }#stationmaster">站长资源</a>
                 </li>  
                 <li>
                 	<a href="${proPath }/resource/syspage">IT资源</a>

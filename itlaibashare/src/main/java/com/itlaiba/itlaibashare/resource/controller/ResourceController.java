@@ -113,19 +113,47 @@ public class ResourceController extends BaseController{
 	 * 首页仅仅查询5条数据，所以这里固定写死
 	 * 
 	 * */	
-	@RequestMapping("sys")
-	public String selectpage(Page page,HttpServletRequest req,MyresourceExample mexample,ResourcesExample rexample){
+//	@RequestMapping("sys")
+//	public String selectpage(Page page,HttpServletRequest req,MyresourceExample mexample,ResourcesExample rexample){
+//		page.setCount(ShowPage.SIZE);//如果首页要控制显示的数目，就在这里重新赋值即可
+//		List<ResourcesWithBLOBs> list = resourceService.select(page,rexample);
+//		req.setAttribute("blobs", list);
+//		try {
+//			List<Myresource> myresources = myresourceService.select(page, mexample);
+//			req.setAttribute("myresources", myresources);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		return "forward:/index.jsp";
+//	}
+	
+	/*
+	 * 查询八条共享资料
+	 */
+	@RequestMapping("selectblob")
+	public @ResponseBody List<ResourcesWithBLOBs> selectblob(Page page,HttpServletRequest req,MyresourceExample mexample,ResourcesExample rexample){
 		page.setCount(ShowPage.SIZE);//如果首页要控制显示的数目，就在这里重新赋值即可
-		List<ResourcesWithBLOBs> list = resourceService.select(page,rexample);
-		req.setAttribute("blobs", list);
-		try {
-			List<Myresource> myresources = myresourceService.select(page, mexample);
-			req.setAttribute("myresources", myresources);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return "forward:/index.jsp";
+		List<ResourcesWithBLOBs> list = resourceService.select(page,rexample);		
+		return list;
 	}
+	
+	/*
+	 * 查询八条共享项目
+	 */
+	@RequestMapping("selectmyresource")
+	public @ResponseBody List<Myresource> selectmyresource(Page page,HttpServletRequest req,MyresourceExample mexample,ResourcesExample rexample){
+		page.setCount(ShowPage.SIZE);//如果首页要控制显示的数目，就在这里重新赋值即可
+		List<Myresource> myresources = null;
+		try {
+			myresources = myresourceService.select(page, mexample);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		return myresources;
+	}
+	
+	
 	
 	@SuppressWarnings("all")
 	private  String geturl(HttpServletRequest req){

@@ -36,10 +36,17 @@
 
 	<div class="footer">
 		<div class="container">
-			<p>© 2018 网站所有权归本人所有，如转载请注明出处|  <a href="#">itlaiba.com</a></p>
-			<div>
+			<p>© 2018 网站所有权归本人所有，如转载请注明出处 <a href="http://www.itlaiba.com">itlaiba.com</a></p>
+			<div style="margin:0 auto;width:40%">
 				<p>友情链接</p>
-				<p><a href="www.yaoyifei.xyz">www.yaoyifei.xyz</a></p>
+				<p>
+					<a href="http://www.yaoyifei.xyz">姚益飞个人博客</a>
+					&nbsp;&nbsp;
+					<a href="http://www.noxue.com">不学网</a>
+					&nbsp;&nbsp;
+					<a href="https://www.yangqq.com/">杨青个人博客</a>				
+				</p>		
 			</div>
+
 		</div>
 	</div>
