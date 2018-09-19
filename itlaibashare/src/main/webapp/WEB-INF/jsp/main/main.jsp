@@ -42,7 +42,7 @@
     <div data-options="region:'west',title:'导航栏',split:true" style="width:200px;">
     	<ul class="easyui-tree">   
 		    <li>   
-		        <span>公共资源管理</span>
+		        <span>软件资源管理</span>
 		        <ul>
 		        	<li>
 		        		<a href="${proPath}/base/adminurl/resource/resourcelist" title="资源管理"
@@ -55,7 +55,7 @@
 		</ul> 
 		<ul  class="easyui-tree">   
 		    <li>   
-		        <span>站长资源管理</span>
+		        <span>项目资源管理</span>
 		        <ul>
 		        	<li>
 			        	<a href="${proPath}/base/adminurl/myresource/myresourcelist" title="站长资源"
@@ -87,6 +87,19 @@
 		        		<a href="${proPath}/base/adminurl/blog/bloglist" title="博客列表"
 							style="text-decoration: none;display: block;font-weight:bold;">
 		        		博客列表
+		        		</a>
+		        	</li>
+		        </ul>
+		    </li>    
+		</ul> 
+		<ul class="easyui-tree">   
+		    <li>   
+		        <span>视频资源管理</span>
+		        <ul>
+		        	<li>
+		        		<a href="${proPath}/base/adminurl/video/videolist" title="视频列表"
+							style="text-decoration: none;display: block;font-weight:bold;">
+		        		视频列表
 		        		</a>
 		        	</li>
 		        </ul>
