@@ -1,51 +1,17 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%-- <div class="container">  
-    <!--default默认主题 暗色调inverse-->  
-    <nav class="navbar navbar-inverse">  
-        <div class="navbar-header">  
-            <a href="#" class="navbar-brand"><strong>itlaiba</strong>.com</a>
-            <button class="navbar-toggle" data-toggle="collapse" data-target="#nav1">  
-                <span class="icon-bar"></span>  
-                <span class="icon-bar"></span>  
-                <span class="icon-bar"></span>  
-                <span class="icon-bar"></span>  
-            </button>	                
-        </div>  
-        <div id="nav1" class="collapse navbar-collapse">  
-            <ul class="nav navbar-nav">  
-                <!--active加深-->
-	            <c:forEach items="${categorys }" var="category">
-		           	 <c:if test="${category.categoryPid eq 0 }">    
-		           	 	<li class="active">
-		                	<a href="${category.categoryUrl }">${category.categoryName }</a>
-		                </li> 
-					  </c:if>
-					  <c:if test="${category.categoryPid eq 100 }">
-						  <li class="dropdown">
-						       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">${category.categoryName }<span class="caret"></span></a>
-						        <ul class="dropdown-menu">
-						        	<c:forEach items="${categorys }" var="cate">
-						        		 <c:if test="${cate.categoryPid eq category.categoryId }">
-						            		 <li>
-						            		 	<a href="${cate.categoryUrl }">${cate.categoryName }</a>
-						            		 </li>
-					            		</c:if>
-					            	</c:forEach>
-						        </ul>
-						  </li>
-					  </c:if>
-	            </c:forEach>
-            </ul>
-            <!--搜索框-->  
-            <form action="" class="navbar-form navbar-right">  
-                <input type="text" onclick="javascript:alert('后续加入')" placeholder="站内搜索" class="form-control"/>  
-            </form>  
-            <a class="navbar-btn btn btn-sm btn-primary" onclick="javascript:alert('后续加入')">登入</a>  
-            <a class="navbar-btn btn btn-sm btn-primary" onclick="javascript:alert('后续加入')">注册</a> 
-        </div>  
-    </nav>  
-</div>  --%>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4af2f3a2c16e429579bd1853f6076bf7";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<%--百度分享代码--%>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"2","bdPos":"right","bdTop":"100"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 
 
 <div class="container">  
@@ -67,10 +33,13 @@
                 	<a href="http://www.itlaiba.com">首页</a>
                 </li>  
                 <li>
-                	<a href="${proPath }#stationmaster">站长资源</a>
+                	<a href="http://www.itlaiba.com#stationmaster">项目下载</a>
                 </li>  
                 <li>
-                	<a href="${proPath }/resource/syspage">IT资源</a>
+                	<a href="${proPath }/resource/3.html">软件资源下载</a>
+                </li> 
+                <li>
+                	<a href="${proPath }/resource/videoResources.html">视频教程下载</a>
                 </li>  
                 <li>
                 	<a href="https://codeload.github.com/duxiangadmin/itlaibashare/zip/master">本站源码下载</a>
@@ -89,13 +58,13 @@
 		          </ul>
 		        </li> --%>
 		        <li>
-                	<a href="${proPath }/blog/select">博客文章</a>
+                	<a href="${proPath }/essay/4.html">学习教程文章</a>
                 </li>
-                <li>
-                	<a href="${proPath }/resource/sys#problem">留言</a>
-                </li>
+               <%-- <li>
+                	<a href="http://www.itlaiba.com#problem">留言</a>
+                </li>--%>
             </ul>
-            <a class="navbar-btn btn btn-sm btn-primary navbar-center " onclick="window.open('${proPath}/login.jsp','_banck');">注册</a>
+            <%-- <a class="navbar-btn btn btn-sm btn-primary navbar-center " onclick="window.open('${proPath}/login.jsp','_banck');">注册</a>--%>
             <%-- <c:choose>
             	<c:when test="${empty users }">
 	            	 <a class="navbar-btn btn btn-sm btn-primary navbar-center " onclick="window.open('${proPath}/login.jsp','_banck');">登入</a>
@@ -114,7 +83,7 @@
 		<h4 class="title-w3ls">关于本站</h4>
 		<h4 class="">本站专为资源共享，唯一网站主页:<a href="">www.itlaiba.com</a></h4>
 		<p class="para-w3-agile">本人经常在网上搜索资料，搜索麻烦，所以这里提供本人搜寻到的资源下载以及部分个人项目下载</p>
-		<p class="para-w3-agile">该网站使用Spring4+Springmvc+Mybatis3架构，采用Mysql数据库；使用Maven3管理项目,使用Shiro作为项目安全框架，，支持restful风格，前台网页使用主流的Bootstrap3 UI框架;后台管理使用主流易用的EasyUI轻量级框架；数据库连接池使用的是C3P0，在线编辑器使用了开源的kindeditor，支持单图，多图上传，支持截图上传，支持代码高亮特性； </p>	
+		<p class="para-w3-agile">该网站使用Spring4+Springmvc+Mybatis3架构，采用Mysql数据库；使用Maven3管理项目,使用Shiro作为项目安全框架，，支持restful风格，前台网页使用主流的Bootstrap3 UI框架;后台管理使用主流易用的EasyUI轻量级框架；数据库连接池使用的是C3P0，在线编辑器使用了开源的ueditor，支持单图，多图上传，支持截图上传，支持代码高亮特性； </p>	
 		<!--这里省略的是还未完成的功能，此处为：技能进度条，后续完成展示-->	
 		<!-- <div class="skills-bar">
 		<h4 class="title-w3ls">My Skills</h4>

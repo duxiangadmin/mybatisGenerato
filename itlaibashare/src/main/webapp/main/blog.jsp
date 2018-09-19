@@ -8,20 +8,7 @@
 <link type="text/css" rel="stylesheet" href="${proPath}/editor/plugins/code/prettify.css"/>  
 <script type="text/javascript" src="${proPath}/editor/plugins/code/prettify.js"></script>  
 <script>prettyPrint();</script>  
-<style type="text/css">
-	/* .paraContent {
-		border:1px solid red;
-		height: 60px;
-		/*position:relative;
-		line-height:20px;
-		height:60px;    是line-height的三倍，如果设置了padding属性，也要加上padding的高度
-		overflow:hidden;
-		text-overflow:ellipsis;
-		white-space: nowrap;
-	}
-	.paraContent:after {
-		content:"...";
-	} */
+<style type="text/css">	
 	pre.prettyprint {     
     border: 1px solid rgb(204, 204, 204);  
     background-color:#F8F8F8;  
@@ -32,8 +19,9 @@
     font-family: "Consolas", "Monaco", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;  
     margin: 1em 0px;  
     white-space: pre-wrap;  
-}  
+ }  
 </style>
+
 </head>
 	
 <body>
@@ -68,15 +56,24 @@
 				<div class="news-one-wthree-agile">	
 					<c:forEach items="${blogEssays }" var="essay">				
 						<div class="col-md-12" style="border-bottom: 1px solid green;margin-top:10px"> 
-						<a href="#one"><h4>文章名：${essay.blogTitle }</h4></a>
-							<div style="height: 100px;overflow: hidden;text-overflow:ellipsis;" name="blogcontent">${essay.blogContent }</div>	
-							<a href="${proPath}/blog/selectByKey/${essay.blogId}" target="_banck" style="float: right;color: green">查看详细</a>
+						<a href="${proPath}/blog/${essay.blogId}.html" target="_banck"><h4>文章名：${essay.blogTitle }</h4></a>
+							<div style="height: 100px;overflow: hidden;text-overflow:ellipsis;" name="blogContent">${essay.blogContent }</div>	
+							<a href="${proPath}/blog/${essay.blogId}.html" target="_banck" style="float: right;color: green">查看详细</a>
 						</div>
 					</c:forEach>
 				</div>						
 			</div>	
 	</div>
 </div>
+<script type="text/javascript">
+	$(function(){		
+		var con = $("div[name='blogContent']");
+		$.each(con,function(n){
+			var subCon = $(con[n]).text().substring(0,300);
+			$(con[n]).html(subCon.trim()+"...");
+		});
+	});
+</script>
 <div style="text-align:center">
 		<a title="总页数">&nbsp;<b>共${page.pc }/${page.tp }页</b></a>
 		<a href="${page.url}&start=0">首  页</a>	
@@ -148,11 +145,6 @@
 		<a href="${page.url}&start=${page.last}">末  页</a>
 	</div>
 <!-- //about -->
-<br><br>
-	<div class="footer">
-		<div class="container">
-			<p>© 2018 网站所有权归本人所有，如转载请注明出处|  <a href="#">itlaiba.com</a></p>
-		</div>
-	</div>
+<%@include file="/common/buttom.jspf" %>
 </body>
 </html>

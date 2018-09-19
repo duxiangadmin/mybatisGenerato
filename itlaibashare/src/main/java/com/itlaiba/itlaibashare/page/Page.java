@@ -17,7 +17,14 @@ public class Page {
 	int rows;//总数居大小
 	String keyword;//搜索关键字
 	String url;//获取url
+	String ify;
 	
+	public String getIfy() {
+		return ify;
+	}
+	public void setIfy(String ify) {
+		this.ify = ify;
+	}
 	public int getPc() {
 		pc =start==0?1:start/count+1;
 		return pc;

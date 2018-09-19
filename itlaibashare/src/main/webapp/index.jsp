@@ -43,7 +43,7 @@ $(function(){
 					str+="<a href='#one'><h4>"+data[i]['myresourceTitle']+"</h4></a>";		   
 					str+="<span class='para-w3-agile' style='font-size: 10px'>"+data[i]['myresourceContent']+"</span><br>";
 					str+="<a href='"+data[i]['myresourceUrl']+"' style='float: left;color: green'>源码下载</a>";
-					str+="<a href='"+data[i]['myresourceSayurl']+"' style='float: right;color: green'>项目预览</a></div><div class='clearfix'></div></div>";
+					str+="<a href='"+data[i]['myresourceSayurl']+"' style='float: right;color: green' target='_blank'>项目预览</a></div><div class='clearfix'></div></div>";
 					$("#myresource").append(str);					
 					str="";
 				});
@@ -51,6 +51,8 @@ $(function(){
 			}
 		});
 	});
+	
+
 </script>
 </head>
 
@@ -58,21 +60,25 @@ $(function(){
 
 <body>
 
+	<%-- <DIV id="toubiao">
+	<table width="86%" style="margin:0 auto;" border="0" cellspacing="0" cellpadding="0">
+	  <tr>
+	    <td width="4%" height="30" align="center"><img src="images/kids.gif" width="15" height="14"></td>
+	    <td width="82%">本站长期出售各类教学视频，包含java、php、pythone、c等等，价格低廉，需要请联系QQ：937220832</td>
+	  </tr>
+	</table>
+	</DIV>--%>
 <!-- about -->
 
 <%@include file="/common/topdh.jspf" %>
 
-<%-- <c:if test="${empty myresources }">
+<!-- 预留广告位 -->
 
-	<script type="text/javascript">		
 
-		window.location="${proPath}/resource/sys";					
-
-	</script>
-
-</c:if> --%>
 <!-- 个人简历 -->
 <%@include file="/common/jianli.jspf" %>
+<!-- 广告 -->
+<%@include file="/common/guanggao.jspf" %>
 <!-- projects -->
 
 <div class="projects" id="projects">
@@ -89,57 +95,6 @@ $(function(){
 
 		<div class="news-bottom" id="myresource">		
 
-			<%-- <c:forEach items="${myresources }" var="myresource">
-
-				<div class="news-one-wthree-agile"  style="overflow: hidden;">
-
-					<div class="col-md-6 news-left">
-
-				        <div class="biseller-column">
-
-							<a class="lightbox">
-
-								<img  src="${proPath}/img/${myresource.myresourceImg } " alt=""/>
-
-							</a> 
-
-							<div class="lightbox-target" id="one">
-
-							 <img src="${proPath }/main/images/scm.png" alt=""/>
-
-							 <p class="pop">${myresource.myresourceContent }</p>
-
-							   <a class="lightbox-close" href="#"> </a>
-
-								<div class="clearfix"> </div>
-
-							</div>
-
-					   </div>
-
-				</div>					
-
-				<div class="col-md-6 news-right"> 
-
-					<a href="#one"><h4>${myresource.myresourceTitle }</h4></a>
-
-						<span class="para-w3-agile" style="font-size: 10px">${myresource.myresourceContent }
-
-						</span>
-
-						<br>	
-
-						<a href="${myresource.myresourceUrl }" style="float: left;color: green">源码下载</a>
-
-						<a href="${myresource.myresourceSayurl }" style="float: right;color: green">项目预览</a>						
-
-					</div>	
-
-					<div class="clearfix"></div>	
-
-				</div>
-
-			</c:forEach>	 --%>
 	</div>
 </div>
 </div>
@@ -148,7 +103,7 @@ $(function(){
 	<div class="container">
 	<span class="about-top-w3"><a  name="publicresource">资源下载 </a></span>
 		<h4 class="title-w3ls">资源下载
-			<span style="float: right;font-size: 0.6em"><a href="${proPath }/resource/syspage">更多资源</a></span>
+			<span style="float: right;font-size: 0.6em"><a href="${proPath }/resource/3.html" target='_blank'>更多资源</a></span>
 		</h4>
 		<div class="news-bottom">
 				<div class="news-one-wthree-agile" >				

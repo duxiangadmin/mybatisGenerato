@@ -32,7 +32,7 @@
 </script>
 <div class="projects" id="projects">
 	<div class="container">
-	<span class="about-top-w3"><a  name="publicresource">资源下载 </a></span>
+	<span class="about-top-w3"><a name="publicresource">资源下载 </a></span>
 		<div class="row" >
 	        <div class="col-xs-8 ">
 				<h4 class="title-w3ls">
@@ -56,13 +56,15 @@
     	</div>
 		<div class="news-bottom">
 				<div class="news-one-wthree-agile">	
+
 					<c:forEach items="${blobs }" var="resource">				
 						<div class="col-md-12 news-left" style="border-bottom: 1px solid green;margin-top:10px"> 
 						<a href="#one"><h4>资源名：${resource.resourceName }</h4></a>
 							<p class="para-w3-agile">${resource.resourceIntroduce }</p>	
-							<a href="${resource.resourceUrl }" style="float: right;color: green">资源下载</a>
+							<a target='_blank' href="${resource.resourceUrl }" style="float: right;color: green">资源下载</a>
 						</div>
 					</c:forEach>
+
 				</div>						
 			</div>	
 	</div>

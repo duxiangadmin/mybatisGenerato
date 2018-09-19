@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>博客列表</title>
+<title>${blogEssay.blogTitle }</title>
 <%@include file="/common/common.jspf" %>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="text/javascript" src="${proPath}/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>
@@ -23,6 +23,7 @@
 	    white-space: pre-wrap;  
 	}  
 </style>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"2","bdPos":"right","bdTop":"100"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 </head>
 	
 <body>
@@ -32,17 +33,17 @@
 <div class="projects" id="projects">
 	<div class="container">
 	<span class="about-top-w3"><a  name="publicresource"> </a></span>
-		<div class="row" >
+		<%-- <div class="row" >
 	        <div class="col-xs-8 ">
 				<h4 class="title-w3ls">
-				<a href="${proPath }/blog/select">博客列表</a>		
+				<a href="${proPath }/blog/select">文章</a>		
 				</h4>
 			</div>
-    	</div>
+    	</div> --%>
 		<div class="news-bottom">
 			<div class="news-one-wthree-agile">									
 					<div class="col-md-12" style="margin-top:10px"> 
-						<a  style="text-align: center;">
+						<a style="text-align: center;">
 							<h2>${blogEssay.blogTitle }</h2>
 						</a>
 						
